@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Halaman Perhitungan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="box">
+    <h2 id="judul">Perhitungan</h2>
+
+    <table>
+        <tr>
+            <td>Angka Pertama</td>
+            <td>:</td>
+            <td><input type="number" id="a"></td>
+        </tr>
+        <tr>
+            <td>Angka Kedua</td>
+            <td>:</td>
+            <td><input type="number" id="b"></td>
+        </tr>
+        <tr>
+            <td>Operasi</td>
+            <td>:</td>
+            <td>
+                <select id="operasi">
+                    <option value="tambah">Penjumlahan</option>
+                    <option value="kurang">Pengurangan</option>
+                    <option value="kali">Perkalian</option>
+                    <option value="bagi">Pembagian</option>
+                    <option value="pangkat">Pangkat</option>
+                    <option value="segitiga">Luas Segitiga</option>
+                    <option value="lingkaran">Luas Lingkaran</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Hasil</td>
+            <td>:</td>
+            <td><input type="text" id="hasil" readonly></td>
+        </tr>
+    </table>
+
+    <button onclick="hitung()">Hitung</button>
+    <a href="index.html" class="back">⬅ Kembali ke Menu</a>
+</div>
+
+<script>
+function hitung() {
+    let a = parseFloat(document.getElementById("a").value);
+    let b = parseFloat(document.getElementById("b").value);
+    let op = document.getElementById("operasi").value;
+    let hasil = 0;
+
+    switch(op) {
+        case "tambah":
+            hasil = a + b;
+            break;
+        case "kurang":
+            hasil = a - b;
+            break;
+        case "kali":
+            hasil = a * b;
+            break;
+        case "bagi":
+            hasil = a / b;
+            break;
+        case "pangkat":
+            hasil = Math.pow(a, b);
+            break;
+        case "segitiga":
+            hasil = 0.5 * a * b;
+            break;
+        case "lingkaran":
+            hasil = Math.PI * a * a;
+            break;
+    }
+
+    document.getElementById("hasil").value = hasil.toFixed(2);
+}
+</script>
+
+</body>
+</html>
